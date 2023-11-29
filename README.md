@@ -8,6 +8,8 @@ run node server.js
 
 change to patient-data-entry
 
+run npm install
+
 run npm start
 
 Data is pulled from and stored in api-gateway/data/patients.json
