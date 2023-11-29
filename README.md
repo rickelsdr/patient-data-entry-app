@@ -1,3 +1,7 @@
+in directory api-gateway
+
+run npm install
+
 in directory api-gateway/src
 
 run node server.js 
