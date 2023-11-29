@@ -134,12 +134,12 @@ return (
     </td>
     <td>
         {editingPatient === patient ? (
-        <div className="container">
+        <div>
             <button onClick={editPatient}>Save</button>&nbsp;
             <button onClick={cancelEditing}>Cancel</button>
         </div>
         ) : (
-        <div className="container">
+        <div>
             <button onClick={() => startEditing(patient)}>Edit</button>&nbsp;
             <button onClick={() => removePatient(patient.id)}>Remove</button>
         </div>
