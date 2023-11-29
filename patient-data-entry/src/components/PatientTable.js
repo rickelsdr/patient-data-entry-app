@@ -23,7 +23,7 @@ try {
 const addPatient = async () => {
 
 if (!newPatient.name || !newPatient.age) {
-    setError('All fields are required to add a patient.');
+    setError('Name and age are required to add a patient.');
     return;
 }
 
@@ -58,19 +58,19 @@ try {
 };
 
 const startEditing = (patient) => {
-setEditingPatient(patient);
-setNewPatient(patient);
+    setEditingPatient(patient);
+    setNewPatient(patient);
 };
 
 const cancelEditing = () => {
-setNewPatient({ name: '', age: '', sex: '', email: '', phone: ''});
-setEditingPatient(null);
+    setNewPatient({ name: '', age: '', sex: '', email: '', phone: ''});
+    setEditingPatient(null);
 };
 
 return (
 <div>
-<h1>Patient Data</h1>
-<table>
+<center><h1>Patient Data</h1></center>
+<table className="styled-table"> 
 <thead>
 <tr>
     <th>ID</th>
@@ -110,7 +110,7 @@ return (
                 <option value="">Select Sex</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="na">Prefer not to disclose</option>
+                <option value="Unspecified">Prefer not to disclose</option>
             </select>
         ) : patient.sex}
     </td>
@@ -134,13 +134,13 @@ return (
     </td>
     <td>
         {editingPatient === patient ? (
-        <div>
-            <button onClick={editPatient}>Save</button>
+        <div className="container">
+            <button onClick={editPatient}>Save</button>&nbsp;
             <button onClick={cancelEditing}>Cancel</button>
         </div>
         ) : (
-        <div>
-            <button onClick={() => startEditing(patient)}>Edit</button>
+        <div className="container">
+            <button onClick={() => startEditing(patient)}>Edit</button>&nbsp;
             <button onClick={() => removePatient(patient.id)}>Remove</button>
         </div>
         )}
@@ -150,42 +150,62 @@ return (
 </tbody>
 </table>
 
+<center>
 {error && <div style={{ color: 'red' }}>{error}</div>}
+</center>
 
 {!editingPatient && (
 <div>
-<input
-    type="text"
-    placeholder="Name"
-    value={newPatient.name}
-    onChange={(e) => setNewPatient({ ...newPatient, name: e.target.value })}
-/>
-<input
-    type="text"
-    placeholder="Age"
-    value={newPatient.age}
-    onChange={(e) => setNewPatient({ ...newPatient, age: e.target.value })}
-/>
-<select value={newPatient.sex} onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })} >
-    <option value="">Select Sex</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-    <option value="Unspecified">Prefer not to disclose</option>
-</select>
-<input
-    type="text"
-    placeholder="Email Address"
-    value={newPatient.email}
-    onChange={(e) => setNewPatient({ ...newPatient, email: e.target.value })}
-/>
-<input
-    type="text"
-    placeholder="Phone Number"
-    value={newPatient.phone}
-    onChange={(e) => setNewPatient({ ...newPatient, phone: e.target.value })}
-/>
-<button onClick={addPatient}>Add Patient</button>
-</div>
+<table className="styled-table">
+    <tbody>
+        <tr>
+            <td>
+                <input
+                    type="text"
+                    placeholder="Name"
+                    value={newPatient.name}
+                    onChange={(e) => setNewPatient({ ...newPatient, name: e.target.value })} required
+                />
+            </td>
+            <td>
+                <input
+                    type="text"
+                    placeholder="Age"
+                    value={newPatient.age}
+                    onChange={(e) => setNewPatient({ ...newPatient, age: e.target.value })}
+                />
+            </td>
+            <td>
+                <select value={newPatient.sex} onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })} >
+                    <option value="">Select Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Unspecified">Prefer not to disclose</option>
+                </select>
+            </td>
+            <td>
+                <input
+                    type="text"
+                    placeholder="Email Address"
+                    value={newPatient.email}
+                    onChange={(e) => setNewPatient({ ...newPatient, email: e.target.value })}
+                />
+            </td>
+            <td>
+                <input
+                    type="text"
+                    placeholder="Phone Number"
+                    value={newPatient.phone}
+                    onChange={(e) => setNewPatient({ ...newPatient, phone: e.target.value })}
+                />
+            </td>
+            <td>
+                <button onClick={addPatient}>Add Patient</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div> 
 )}
 </div>
 );

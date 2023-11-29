@@ -9,7 +9,6 @@ function Todo(){
                 <li>add project to jenkins pipeline</li>
                 <li>Host app on AWS</li>
                 <li>add automated tests</li>
-                <li>apply prettier css</li>
                 <li>add data integrity constraints and error checking</li>
                 <li>add paging</li>
             </ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./patients.css";
 import PatientTable from "./components/PatientTable.js";
 import Todo from "./components/Todo.js"
 
