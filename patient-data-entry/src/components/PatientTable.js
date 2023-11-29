@@ -106,11 +106,12 @@ return (
     </td>
     <td>
         {editingPatient === patient ? (
-            <input
-            type="text"
-            value={newPatient.sex}
-            onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })}
-            />
+            <select value={newPatient.sex} onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })} >
+                <option value="">Select Sex</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="na">Prefer not to disclose</option>
+            </select>
         ) : patient.sex}
     </td>
     <td>
@@ -165,18 +166,12 @@ return (
     value={newPatient.age}
     onChange={(e) => setNewPatient({ ...newPatient, age: e.target.value })}
 />
-{/* <select id = "sex" onchange = {(e) => setNewPatient({ ...newPatient, sex: e.target.value })} >
-    <option>  </option>
-    <option> Male </option>
-    <option> Female </option>
-    <option> Prefer not to disclose </option>
-</select> */}
-<input
-    type="text"
-    placeholder="Sex"
-    value={newPatient.sex}
-    onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })}
-/>
+<select value={newPatient.sex} onChange={(e) => setNewPatient({ ...newPatient, sex: e.target.value })} >
+    <option value="">Select Sex</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Unspecified">Prefer not to disclose</option>
+</select>
 <input
     type="text"
     placeholder="Email Address"

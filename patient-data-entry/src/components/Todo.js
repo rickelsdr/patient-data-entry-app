@@ -5,13 +5,13 @@ function Todo(){
             <div>
             <h2>Things left to do</h2>
             <ul>
-                <li>add fields</li>
+                <li>dockerize</li>
                 <li>add project to jenkins pipeline</li>
                 <li>Host app on AWS</li>
                 <li>add automated tests</li>
                 <li>apply prettier css</li>
                 <li>add data integrity constraints and error checking</li>
-                <li>add paging  </li>
+                <li>add paging</li>
             </ul>
         </div>)
 }
